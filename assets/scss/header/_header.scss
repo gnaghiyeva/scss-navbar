@@ -1,0 +1,84 @@
+header{
+    background-color: $nav-bgc;
+    height: 70px;
+    width: 100%;
+
+    .nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+
+        &_logo{
+            color: $primary-black;
+            font-size: 30px;
+            font-family: $font;
+        }
+
+        &-center{
+            display: flex;
+
+            &_link{
+                display: flex;
+                align-items: center;
+                // position: relative;
+
+                &-item{
+                   margin-right: 40px;
+                    a{
+                        color: $primary-black;
+                        font-family: $font;
+                        position: relative;
+
+                        &::after{
+                            content: '';
+                            height: 2px;
+                            width: 100%;
+                            background-color: $primary-red;
+                            position: absolute;
+                            left: 0;
+                            bottom: -5px;
+                            opacity: 0;  
+                            transition: all .5s ease-in;     
+                                                 
+                        }
+
+                        &:hover::after{
+                            font-style: bold;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            // dropdown ozu ekranda gorunur amma display:none sonra ise display:block edende gorsenmir :(
+            &_drop-down{
+                position: relative; 
+
+            }
+            &-lists {
+                position: absolute;
+                display: none;
+                 &_list{    
+                    padding: 6px 0;
+                 }   
+            }
+
+            &_drop-down:hover{
+                    &-lists{
+                        display: block;
+                    }
+            }
+        }
+
+        &-right_btn{
+            @include button ($primary-red);
+
+            &:hover{
+                cursor: pointer;
+              background-color: rgb(123, 13, 13);
+            }
+        }
+    }
+}
